@@ -24,8 +24,15 @@ if file is not None:
     else:
         st.write(df.head(num_row))
 df.select_dtypes(include='number').coloums.list()
-x_col=st.selectbox(df.coloums.to_list())
-y_col=st.selectbox(df.coloums.to_list())
+col1,col2,col3=st.coloums(3)
+with col1:
+    x_col=st.selectbox(columns)
+with col2:
+    y_col=st.selectbox(columns)
+with col3:
+     color = st.selectbox('choose color',df.columns.to_list())
+
+
 fig = px.scatter(df, x=x_col, y=y_col)
 st.plotly_chart(fig)
    

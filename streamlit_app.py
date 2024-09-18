@@ -16,16 +16,21 @@ if file is not None:
     num_row = st.slider('Choose number of rows', min_value=1, max_value=len(df), step=1)
     
     # Multiselect to choose columns
-    columns = st.multiselect('Choose the columns', df.columns.to_list())  # Fixed the typo here
+    columns = st.multiselect('Choose the columns', df.columns.to_list())
     
-   
+    # Display the selected rows and columns
     if columns:
-        st.write(df[:num_row][columns])
+        st.write(df[columns].head(num_row))
     else:
-        st.write(df[:num_row])
+        st.write(df.head(num_row))
+    
+    # Create and display the Plotly scatter plot if the required columns are present
+    if 'population' in df.columns and 'total_rooms' in df.columns:
+        fig = px.scatter(df, x='population', y='total_rooms')
+        st.plotly_chart(fig)
+    else:
+        st.write("The dataset does not contain the required columns for the scatter plot.")
 
-fig=px.scatter(df,x='population',y='total_rooms')
-st.plotly.chart(fig)
  
  
 

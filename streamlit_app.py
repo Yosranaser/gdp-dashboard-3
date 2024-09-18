@@ -12,5 +12,5 @@ elif choose=='trangle' :
 
 btn=st.button('cal')
 if btn:
-  st.write(f'area{area})
+  st.write(f'area{area}')
 

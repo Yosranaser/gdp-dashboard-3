@@ -2,6 +2,7 @@ import streamlit as st
 area=None
 st.sidebar.title('sidebar')
 st.header('calculate area')
+with st.sidebar:
 choose=st.selectbox('choose box',['circle','trangle'])
 if choose=='circle' :
   r=st.number_input('enter radius',min_value=1,max_value=100)

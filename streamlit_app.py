@@ -23,11 +23,11 @@ if file is not None:
         st.write(df[columns].head(num_row))
     else:
         st.write(df.head(num_row))
-    df.select_dtypes(include='number').coloums.list()
-    x_col=st.selectbox(df.coloums.to_list())
-    y_col=st.selectbox(df.coloums.to_list())
-     fig = px.scatter(df, x=x_col, y=y_col)
-     st.plotly_chart(fig)
+df.select_dtypes(include='number').coloums.list()
+x_col=st.selectbox(df.coloums.to_list())
+y_col=st.selectbox(df.coloums.to_list())
+fig = px.scatter(df, x=x_col, y=y_col)
+st.plotly_chart(fig)
    
 
  

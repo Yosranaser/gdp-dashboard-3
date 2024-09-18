@@ -23,13 +23,12 @@ if file is not None:
         st.write(df[columns].head(num_row))
     else:
         st.write(df.head(num_row))
-    
-    # Create and display the Plotly scatter plot if the required columns are present
-    if 'population' in df.columns and 'total_rooms' in df.columns:
-        fig = px.scatter(df, x='population', y='total_rooms')
-        st.plotly_chart(fig)
-    else:
-        st.write("The dataset does not contain the required columns for the scatter plot.")
+    df.select_dtypes(include='number').coloums.list()
+    x_col=st.selectbox(df.coloums.to_list())
+    y_col=st.selectbox(df.coloums.to_list())
+     fig = px.scatter(df, x=x_col, y=y_col)
+     st.plotly_chart(fig)
+   
 
  
  

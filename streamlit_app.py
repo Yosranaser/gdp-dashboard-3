@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import plotly.express as px
 
 # Display header
 st.header('File Upload')
@@ -23,7 +24,8 @@ if file is not None:
     else:
         st.write(df[:num_row])
 
-
+fig=px.scatter(df,x='population',y='total_rooms')
+st.plotly.chart(fig)
  
  
 

@@ -17,8 +17,7 @@ if file is not None:
     # Multiselect to choose columns
     columns = st.multiselect('Choose the columns', df.columns.to_list())  # Fixed the typo here
     
-    # Display the selected rows and columns
-    st.write(df[columns].head(num_row))  # Display only selected columns and rows
+   
     if columns:
         st.write(df[:num_row][columns])
     else:

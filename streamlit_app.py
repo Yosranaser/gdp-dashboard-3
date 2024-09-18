@@ -1,5 +1,6 @@
 import streamlit as st
 area=None
+st.sidebar.title('sidebar')
 st.header('calculate area')
 choose=st.selectbox('choose box',['circle','trangle'])
 if choose=='circle' :

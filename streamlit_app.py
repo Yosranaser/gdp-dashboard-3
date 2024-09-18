@@ -43,3 +43,4 @@ if file is not None:
     # Create and display the scatter plot using Plotly
     fig = px.scatter(df, x=x_col, y=y_col, color=color)
     st.plotly_chart(fig)
+

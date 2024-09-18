@@ -1,4 +1,5 @@
 import streamlit as st
+import time
 area=None
 st.sidebar.title('sidebar')
 st.header('calculate area')
@@ -14,5 +15,7 @@ elif choose=='trangle' :
 
 btn=st.button('cal')
 if btn:
+  with st.spinner('loadind')
+  time.sleep(2)
   st.write(f'area:{area}')
 

@@ -15,7 +15,7 @@ elif choose=='trangle' :
 
 btn=st.button('cal')
 if btn:
-  with st.spinner('loadind')
+  with st.spinner('loadind'):
   time.sleep(2)
   st.write(f'area:{area}')
 

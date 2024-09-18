@@ -8,7 +8,7 @@ if choose=='circle' :
 elif choose=='trangle' :
   hight=st.number_input('enter hight',min_value=1,max_value=100)
   width=st.number_input('enter width',min_value=1,max_value=100)
-  area=3.14*hight*width
+  area=hight*width
 
 btn=st.button('cal')
 if btn:

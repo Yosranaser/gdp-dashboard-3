@@ -21,7 +21,7 @@ if file is not None:
     st.write(df[columns].head(num_row))  # Display only selected columns and rows
     if columns:
         st.write(df[:num_row][columns])
-    else
+    else:
         st.write(df[:num_row])
 
 

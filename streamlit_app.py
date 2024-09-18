@@ -23,20 +23,23 @@ if file is not None:
         st.write(df[columns].head(num_row))
     else:
         st.write(df.head(num_row))
-df.select_dtypes(include='number').coloums.list()
-col1,col2,col3=st.coloums(3)
-with col1:
-    x_col=st.selectbox(columns)
-with col2:
-    y_col=st.selectbox(columns)
-with col3:
-     color = st.selectbox('choose color',df.columns.to_list())
-
-
-fig = px.scatter(df, x=x_col, y=y_col)
-st.plotly_chart(fig)
-   
-
- 
- 
-
+    
+    # Filter only numeric columns for plotting
+    numeric_columns = df.select_dtypes(include='number').columns.to_list()
+    
+    # Create 3 columns in the Streamlit layout
+    col1, col2, col3 = st.columns(3)
+    
+    # Select the x-axis, y-axis, and color columns
+    with col1:
+        x_col = st.selectbox('Choose X-axis', numeric_columns)
+    
+    with col2:
+        y_col = st.selectbox('Choose Y-axis', numeric_columns)
+    
+    with col3:
+        color = st.selectbox('Choose Color', df.columns.to_list())
+    
+    # Create and display the scatter plot using Plotly
+    fig = px.scatter(df, x=x_col, y=y_col, color=color)
+    st.plotly_chart(fig)

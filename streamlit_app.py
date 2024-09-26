@@ -19,7 +19,7 @@ st.set_page_config(page_title="Customer Segmentation ", page_icon="✈️", layo
 with st.sidebar:
 
     st.sidebar.image('Customer-Segmentation.png')
-    st.sidebar.subheader("This dashboard for Indian Aviation Flights Fare aimed at predicting the prices of flight tickets")
+    st.sidebar.subheader("This dashboard for customer segmenation")
     st.sidebar.write("")
     
     

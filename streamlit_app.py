@@ -21,5 +21,7 @@ with st.sidebar:
     st.sidebar.image('Customer-Segmentation.png')
     st.sidebar.subheader("This dashboard for customer segmenation")
     st.sidebar.write("")
+st.sidebar.write("")
+    st.sidebar.markdown("Made by [Hussein zayed](https://github.com/HusseinZayed)")
     
     

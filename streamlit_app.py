@@ -31,15 +31,4 @@ if uploaded_file is not None:
     st.write("Predictions:")
     st.write(predictions)
     
-    # حفظ النتائج كملف CSV
-    result_df = pd.DataFrame(predictions, columns=["Cluster"])
-    result_df['Data'] = data.values.tolist()  # حفظ البيانات الأصلية مع التوقعات
-    csv_result = result_df.to_csv(index=False)
-    
-    st.download_button(
-        label="Download Predictions as CSV",
-        data=csv_result,
-        file_name="predictions.csv",
-        mime="text/csv",
-    )
-
+   

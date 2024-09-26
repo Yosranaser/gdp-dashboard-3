@@ -14,12 +14,12 @@ import plotly.express as px
 st.set_page_config(page_title="Customer Segmentation ", page_icon="✈️", layout='wide')
 
 # Loading data
-df = pd.read_csv('cleaned_df.csv')
+# df = pd.read_csv('cleaned_df.csv')
 
 with st.sidebar:
 
-    st.sidebar.image('R.jpg')
+    st.sidebar.image('Customer-Segmentation.png')
     st.sidebar.subheader("This dashboard for Indian Aviation Flights Fare aimed at predicting the prices of flight tickets")
     st.sidebar.write("")
     
-    data = df.copy()
+    

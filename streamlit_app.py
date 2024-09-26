@@ -20,7 +20,7 @@ uploaded_file = st.file_uploader("Upload your CSV file", type=["csv"])
 
 if uploaded_file is not None:
     # قراءة البيانات
-    data = pd.read_csv(uploaded_file)
+    data = pd.read_csv(uploaded_file, encoding='ISO-8859-1')  # or 'latin1'
     st.write("Data preview:")
     st.write(data.head())
     

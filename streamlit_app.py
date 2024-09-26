@@ -1,27 +1,44 @@
 import streamlit as st
+import pickle
 import pandas as pd
-import numpy as np
-from sklearn.preprocessing import StandardScaler
-import joblib
-from PIL import Image
-from datetime import datetime, date
-import matplotlib.pyplot as plt
-import seaborn as sns
-import plotly.express as px
 
+# تحميل النموذج من الملف
+def load_model():
+    with open('/mnt/data/kmeans_model.pkl', 'rb') as file:
+        model = pickle.load(file)
+    return model
 
-# Setting page configuration
-st.set_page_config(page_title="Customer Segmentation ", page_icon="✈️", layout='wide')
+# واجهة Streamlit
+st.title("KMeans Model Predictor")
 
-# Loading data
-# df = pd.read_csv('cleaned_df.csv')
+# تحميل النموذج
+model = load_model()
+st.write("Model loaded successfully!")
 
-with st.sidebar:
+# رفع البيانات من المستخدم
+uploaded_file = st.file_uploader("Upload your CSV file", type=["csv"])
 
-    st.sidebar.image('Customer-Segmentation.png')
-    st.sidebar.subheader("This dashboard for customer segmenation")
-    st.sidebar.write("")
-st.sidebar.write("")
-    st.sidebar.markdown("Made by [Hussein zayed](https://github.com/HusseinZayed)")
+if uploaded_file is not None:
+    # قراءة البيانات
+    data = pd.read_csv(uploaded_file)
+    st.write("Data preview:")
+    st.write(data.head())
     
+    # توقع الفئات باستخدام النموذج
+    predictions = model.predict(data)
     
+    # عرض النتائج
+    st.write("Predictions:")
+    st.write(predictions)
+    
+    # حفظ النتائج كملف CSV
+    result_df = pd.DataFrame(predictions, columns=["Cluster"])
+    result_df['Data'] = data.values.tolist()  # حفظ البيانات الأصلية مع التوقعات
+    csv_result = result_df.to_csv(index=False)
+    
+    st.download_button(
+        label="Download Predictions as CSV",
+        data=csv_result,
+        file_name="predictions.csv",
+        mime="text/csv",
+    )

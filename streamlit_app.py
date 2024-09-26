@@ -30,7 +30,7 @@ if uploaded_file is not None:
     # عرض النتائج
     st.write("Predictions:")
     st.write(predictions)
-       result_df = pd.DataFrame(predictions, columns=["Cluster"])
+    result_df = pd.DataFrame(predictions, columns=["Cluster"])
     result_df['Data'] = data.values.tolist()  # حفظ البيانات الأصلية مع التوقعات
     csv_result = result_df.to_csv(index=False)
     
@@ -40,4 +40,3 @@ if uploaded_file is not None:
         file_name="predictions.csv",
         mime="text/csv",
     )
-   

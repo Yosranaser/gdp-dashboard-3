@@ -4,7 +4,7 @@ import pandas as pd
 
 # تحميل النموذج من الملف
 def load_model():
-    with open('/mnt/data/kmeans_model.pkl', 'rb') as file:
+    with open('kmeans_model.pkl', 'rb') as file:
         model = pickle.load(file)
     return model
 

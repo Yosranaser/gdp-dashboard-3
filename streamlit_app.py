@@ -40,3 +40,11 @@ if uploaded_file is not None:
         file_name="predictions.csv",
         mime="text/csv",
     )
+with open('your_script.py', 'r', encoding='utf-8') as file:
+    content = file.read()
+
+# Replace non-breaking spaces with normal spaces
+content = content.replace('\u00A0', ' ')
+
+with open('your_script_clean.py', 'w', encoding='utf-8') as file:
+    file.write(content)

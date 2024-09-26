@@ -44,6 +44,18 @@ if uploaded_file is not None:
    # content = file.read()
 with open('your_script_clean.py', 'w', encoding='utf-8') as file:
     file.write(content)
+file_path = 'streamlit_app.py'
+
+with open(file_path, 'r', encoding='utf-8') as file:
+    content = file.read()
+
+# Replace non-breaking space with a regular space
+cleaned_content = content.replace('\u00A0', ' ')
+
+with open(file_path, 'w', encoding='utf-8') as file:
+    file.write(cleaned_content)
+
+print("Non-breaking spaces removed successfully!")
 
 # Replace non-breaking spaces with normal spaces
 content = content.replace('\u00A0', ' ')

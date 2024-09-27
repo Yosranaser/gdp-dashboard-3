@@ -41,3 +41,5 @@ with col3:
     sns.countplot(x=kmeans_model.labels_, data=data)
     plt.title('Number of ATMs per Cluster')
     st.pyplot(plt)
+
+

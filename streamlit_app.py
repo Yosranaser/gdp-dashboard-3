@@ -31,23 +31,6 @@ if model:
 else:
     st.stop()  # Stop execution if model couldn't be loaded
 
-# File uploader for the user to upload a CSV file
-uploaded_file = st.file_uploader("Upload your CSV file", type=["csv"])
-
-if uploaded_file is not None:
-    # Try reading the uploaded CSV with different encodings
-    try:
-        data = pd.read_csv(uploaded_file, encoding='ISO-8859-1')
-    except UnicodeDecodeError:
-        try:
-            data = pd.read_csv(uploaded_file, encoding='utf-8')
-        except Exception as e:
-            st.error(f"Error reading file: {e}")
-            st.stop()
-
-    # Display the uploaded data
-    st.write("Data preview:")
-    st.write(data.head())
 
 # Sidebar for input
 st.sidebar.title("Input Data")

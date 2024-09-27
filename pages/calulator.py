@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Load the KMeans model
-with open('/mnt/data/kmeans_model.pkl', 'rb') as file:
+with open('kmeans_model.pkl', 'rb') as file:
     kmeans_model = pickle.load(file)
 
 # Load your dataset (you can replace this with the actual dataset path)

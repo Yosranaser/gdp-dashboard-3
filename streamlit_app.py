@@ -23,13 +23,12 @@ if uploaded_file is not None:
     data = pd.read_csv(uploaded_file, encoding='ISO-8859-1')  # Adjust encoding if needed
     st.write("Data preview:")
     st.write(data.head())
-unit_price = st.number_input("Enter Unit Price", min_value=0.0, step=0.01)
-quantity = st.number_input("Enter Quantity", min_value=0, step=1)
+
 
 st.sidebar.title("Input Data")
 
 # Taking inputs from the user in the sidebar
-unit_price = st.sidebar.number_input("Enter Unit Price", min_value=0.0, step=0.01)
+unit_price = st.sidebar.number_input("Enter Unit Price", min_value=0.0, step=1)
 quantity = st.sidebar.number_input("Enter Quantity", min_value=0, step=1)
 
 # Calculate total price

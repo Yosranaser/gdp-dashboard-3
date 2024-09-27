@@ -1,7 +1,2 @@
-pandas
-matplotlib
-seaborn
-chardet
-scikit-learn==1.0.2  # Specify your required version
-streamlit
+
 

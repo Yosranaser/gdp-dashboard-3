@@ -15,8 +15,6 @@ if model:
     st.write("Model loaded successfully!")
 else:
     st.stop()  # Stop execution if model couldn't be loaded
-
-
 # Sidebar for input
 st.sidebar.title("Input Data")
 

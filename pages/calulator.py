@@ -1,58 +1,28 @@
 import streamlit as st
-import pandas as pd
 import pickle
-import matplotlib.pyplot as plt
-import seaborn as sns
-import chardet
+import pandas as pd
+from sklearn.cluster import KMeans
+import sklearn
 
-# Load the KMeans model
-with open('kmeans_model.pkl', 'rb') as file:
-    kmeans_model = pickle.load(file)
+# Print the scikit-learn version for debugging
+st.write(f"scikit-learn version: {sklearn.__version__}")
 
-# Streamlit layout
-st.title("ATM Services Dashboard")
-
-# File uploader for the dataset
-uploaded_file = st.file_uploader("Upload CSV", type=["csv"])
-
-if uploaded_file is not None:
-    # Detect encoding
-    rawdata = uploaded_file.read(10000)  # Read a small portion of the file
-    result = chardet.detect(rawdata)
-    encoding = result['encoding']
-    uploaded_file.seek(0)  # Reset file pointer to the beginning
-
+# Function to load the KMeans model from a file with error handling
+def load_model():
     try:
-        # Load the data using the detected encoding
-        data = pd.read_csv(uploaded_file, encoding=encoding)
+        with open('kmeans_model.pkl', 'rb') as file:
+            model = pickle.load(file)
+        return model
+    except FileNotFoundError:
+        st.error("Model file not found. Make sure the 'kmeans_model.pkl' file is in the correct directory.")
+        return None
+    except Exception as e:
+        st.error(f"An error occurred while loading the model: {e}")
+        return None
 
-        col1, col2, col3 = st.columns(3)
+# Streamlit interface
+st.title("KMeans Model Predictor")
+st.image("Customer-Segmentation.png", caption="Customer-Segmentation", use_column_width=True)
 
-        # Plot 1: Cluster vs Feature1
-        with col1:
-            st.header("Cluster vs Feature1")
-            plt.figure(figsize=(5, 4))
-            sns.scatterplot(x=data['lat'], y=data['lng'], hue=kmeans_model.labels_, palette='viridis')
-            plt.title('Location Clusters')
-            st.pyplot(plt)
-
-        # Plot 2: Services Distribution
-        with col2:
-            st.header("Services Distribution")
-            plt.figure(figsize=(5, 4))
-            service_counts = data['services'].value_counts()
-            sns.barplot(x=service_counts.index, y=service_counts.values)
-            plt.xticks(rotation=90)
-            plt.title('Distribution of Services')
-            st.pyplot(plt)
-
-        # Plot 3: Clusters by Area
-        with col3:
-            st.header("Clusters by Area")
-            plt.figure(figsize=(5, 4))
-            sns.countplot(x=kmeans_model.labels_, data=data)
-            plt.title('Number of ATMs per Cluster')
-            st.pyplot(plt)
-
-    except UnicodeDecodeError as e:
-        st.error(f"Error reading the CSV file: {e}")
+# Load the model
+model

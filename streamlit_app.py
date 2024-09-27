@@ -10,7 +10,7 @@ def load_model():
 
 # Streamlit interface
 st.title("KMeans Model Predictor")
-
+st.image("Customer-Segmentation.png", caption="Customer-Segmentation", use_column_width=True)
 # Load the model
 model = load_model()
 st.write("Model loaded successfully!")

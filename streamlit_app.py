@@ -47,14 +47,14 @@ countries = [
     'European Community', 'Malta'
 ]
 selected_country = st.selectbox("Choose your country", countries)
-st.write(f"You have selected: {selected_country}")
+# st.write(f"You have selected: {selected_country}")
 descriptions = [
     'WHITE HANGING HEART T-LIGHT HOLDER', 'WHITE METAL LANTERN',
     'CREAM CUPID HEARTS COAT HANGER', 'add stock to allocate online orders',
     'for online retail orders'
 ]
 selected_description = st.selectbox("Choose a description", descriptions)
-st.write(f"You have selected description: {selected_description}")
+# st.write(f"You have selected description: {selected_description}")
 
 
 # Calculate total price

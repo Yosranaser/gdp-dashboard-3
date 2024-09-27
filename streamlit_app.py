@@ -30,7 +30,9 @@ st.sidebar.title("Input Data")
 # Taking inputs from the user in the sidebar
 unit_price = st.sidebar.number_input("Enter Unit Price", min_value=0.0, step=0.01)  # Use a float step for unit price
 quantity = st.sidebar.number_input("Enter Quantity", min_value=0, step=1)  # Integer step for quantity
-
+customer_id = st.sidebar.text_input("Enter Customer ID")
+invoice_date = st.sidebar.date_input("Enter Invoice Date", value=datetime.today())
+stock_code = st.sidebar.text_input("Enter Stock Code")
 # Calculate total price
 if unit_price > 0 and quantity > 0:
     total_price = unit_price * quantity

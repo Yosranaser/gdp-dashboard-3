@@ -65,3 +65,4 @@ selected_description = st.selectbox("Choose a description", descriptions)
 if unit_price > 0 and quantity > 0:
     total_price = unit_price * quantity
     st.write(f"Total Price: {total_price}")
+

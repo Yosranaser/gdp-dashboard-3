@@ -1,7 +1,8 @@
 import streamlit as st
 import pickle
 import pandas as pd
-
+pip uninstall scikit-learn
+pip install scikit-learn
 # Load the KMeans model from a file
 def load_model():
     with open('kmeans_model.pkl', 'rb') as file:

@@ -26,6 +26,12 @@ if uploaded_file is not None:
 unit_price = st.number_input("Enter Unit Price", min_value=0.0, step=0.01)
 quantity = st.number_input("Enter Quantity", min_value=0, step=1)
 
+st.sidebar.title("Input Data")
+
+# Taking inputs from the user in the sidebar
+unit_price = st.sidebar.number_input("Enter Unit Price", min_value=0.0, step=0.01)
+quantity = st.sidebar.number_input("Enter Quantity", min_value=0, step=1)
+
 # Calculate total price
 if unit_price and quantity:
     total_price = unit_price * quantity

@@ -4,7 +4,7 @@ import pandas as pd
 pip uninstall scikit-learn
 pip install scikit-learn
 import sklearn
-print(sklearn.__version__)
+
 
 # Load the KMeans model from a file
 def load_model():
